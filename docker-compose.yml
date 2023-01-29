@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+
+  next-13-redux:
+    container_name: next-13-redux
+    image: next-13-redux:latest
+    build:
+      dockerfile: Dockerfile 
+    volumes:
+      - ./next-13-redux:/app:cached      
+      - notused_data:/app/node_modules
+    ports:
+      - 3000:3000
+    healthcheck:
+      disable: true
+    tty: true
+    # restart: unless-stopped
+    command: npm run dev
+
+volumes:
+  notused_data:
