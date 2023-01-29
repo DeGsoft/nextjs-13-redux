@@ -1,6 +1,10 @@
+import React from 'react';
 import './globals.css'
+import { Providers } from './providers';
 
-export default function RootLayout({ children }) {
+export default function RootLayout({   
+  children
+}) {
   return (
     <html lang="en">
       {/*
@@ -8,7 +12,11 @@ export default function RootLayout({ children }) {
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }
